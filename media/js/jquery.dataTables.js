@@ -3082,7 +3082,7 @@
 				nScrollBody.style.overflow = "auto";
 			}
 			
-			nScrollHead.style.border = "0";
+			//nScrollHead.style.border = "0";
 			nScrollHead.style.width = "100%";
 			nScrollFoot.style.border = "0";
 			nScrollHeadInner.style.width = oSettings.oScroll.sXInner !== "" ?
