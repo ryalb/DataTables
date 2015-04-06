@@ -14421,7 +14421,7 @@
         $(th).removeClass('sorting').addClass('sorting_desc');
 
       }
-    } else if ( thisTable === 'sidebar_saved_table' || thisTable === 'sidebar_shared_table' || thisTable === 'sidebar_favorite_table' ) {
+    } else if ( thisTable === 'sidebar_saved_table' || thisTable === 'sidebar_shared_table' || thisTable === 'sidebar_favorite_table' || thisTable === 'sidebar_myreports_table' || thisTable === 'sidebar_allreports_table' || thisTable === 'sidebar_favoritereports_table' ) {
       $('#'+thisTable+' th').removeClass('sorting_asc sorting_desc');
 
       if (sortState === 'ascending') {
