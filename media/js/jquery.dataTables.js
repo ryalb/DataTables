@@ -3770,7 +3770,8 @@
   
     $.each( _fnGetUniqueThs( settings, headerCopy ), function ( i, el ) {
       idx = _fnVisibleToColumnIndex( settings, i );
-      el.style.width = settings.aoColumns[idx].sWidth;
+        // remove 30px from the total width to compensate the left padding
+        el.style.width = settings.aoColumns[idx].sWidth - 30;
     } );
   
     if ( footer ) {
