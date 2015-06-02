@@ -3842,7 +3842,7 @@
   
     // Apply all widths in final pass
     _fnApplyToChildren( function(nToSize, i) {
-      nToSize.style.width = headerWidths[i];
+      // nToSize.style.width = headerWidths[i];
     }, headerTrgEls );
   
     $(headerSrcEls).height(0);
@@ -3874,7 +3874,7 @@
     // width to what they currently are
     _fnApplyToChildren( function(nSizer, i) {
       nSizer.innerHTML = '<div class="dataTables_sizing" style="height:0;overflow:hidden;">'+headerContent[i]+'</div>';
-      nSizer.style.width = headerWidths[i];
+      // nSizer.style.width = headerWidths[i];
     }, headerSrcEls );
   
     if ( footer )
@@ -5836,12 +5836,20 @@
      *      oTable.fnSetColumnVis( 1, false );
      *    } );
      */
-    this.fnSetColumnVis = function ( iCol, bShow, bRedraw )
+    this.fnSetColumnVis = function ( iCol, bShow, bRedraw, fixWidth )
     {
-      var api = this.api( true ).column( iCol ).visible( bShow );
+      var api = this.api( true ).column( iCol ).visible( bShow, false );
     
       if ( bRedraw === undefined || bRedraw ) {
         api.columns.adjust().draw();
+      }
+
+      if ( fixWidth && !bShow ) {
+        var columnWidth = $(this.api( true ).column( iCol ).header()).width() + 30;
+        var table = $(this);
+        var tableWidth = $(this).width();
+
+        table.css({width: tableWidth - columnWidth});
       }
     };
     
