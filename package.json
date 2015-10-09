@@ -1,6 +1,6 @@
 {
 	"name": "datatables",
-	"version": "1.10.5-dev",
+	"version": "1.10.10-dev",
 	"title": "DataTables",
 	"main": "media/js/jquery.dataTables",
 	"files": [
@@ -33,5 +33,19 @@
 		"type": "git",
 		"url": "https://github.com/DataTables/DataTables.git"
 	},
-	"homepage": "http://datatables.net"
+	"homepage": "http://datatables.net",
+
+	"jspm": {
+		"dependencies": {
+			"css": "^0.1.5",
+			"jquery": "*"
+		},
+		"registry": "jspm",
+		"shim": {
+			"media/js/jquery.dataTables": {
+				"deps": ["jquery", "../css/jquery.dataTables.css!"],
+				"exports": "$"
+			}
+		}
+	}
 }
